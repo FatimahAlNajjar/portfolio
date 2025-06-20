@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fatimah Al-Najjar | Portfolio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f8f9fa;
+      padding-top: 80px;
+    }
+
+    .nav {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 15px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      padding: 0 20px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-link {
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 10px 20px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .page { display: none; }
+    .page.active { display: block; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      font-weight: 300;
+    }
+
+    .header .tagline {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 30px;
+    }
+
+    .profile-img {
+      width: 120px;
+      height: 140px;
+      border-radius: 10px;
+      margin: 0 auto 30px;
+      display: block;
+      border: 4px solid rgba(255,255,255,0.3);
+    }
+
+    .main-content {
+      background: white;
+      margin: -30px auto 0;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+      padding: 40px;
+    }
+
+    .projects-section h2 {
+      font-size: 1.8rem;
+      color: #2c3e50;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+
+    .project-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 25px;
+    }
+
+    .project-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .project-type {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    .project-content {
+      padding: 25px;
+    }
+
+    .project-description {
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .tech-tag {
+      background: #f0f0f0;
+      color: #666;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      border: 1px solid #e0e0e0;
+      transition: all 0.3s ease;
+    }
+
+    .tech-tag:hover {
+      background: #667eea;
+      color: white;
+      border-color: #667eea;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        gap: 15px;
+      }
+
+      .nav-link {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+      }
+
+      .header h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-container">
+      <div class="nav-links">
+        <a href="#" class="nav-link active" onclick="showPage(event, 'home')">Home</a>
+        <a href="#" class="nav-link" onclick="showPage(event, 'projects')">Projects</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Home Page -->
+  <div id="home" class="page active">
+    <div class="header">
+      <div class="container">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='140' viewBox='0 0 120 140'%3E%3Crect width='120' height='140' fill='%23f0f0f0' rx='10'/%3E%3Ctext x='60' y='75' text-anchor='middle' font-family='Arial' font-size='14' fill='%23666'%3EProfile Photo%3C/text%3E%3C/svg%3E" alt="Fatimah Al-Najjar" class="profile-img">
+        <h1>From Classroom to Real-World Impact. Take a Look at My Work!</h1>
+        <div class="tagline">Fatimah Al-Najjar</div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="main-content">
+        <h2>Engineer Who Loves Data, Devices, and Discovery</h2>
+        <p style="margin-top: 20px; color: #555;">
+          I'm a Northwestern graduate (BS/MS in Biomedical and Mechanical Engineering with a focus on Advanced Data Analytics) who loves using Python and data to solve real-world problems. At Novo Surgical, I built automated workflows, designed data-driven process improvements, and worked hands-on with production teams to optimize operations. I have also conducted research in engineering labs, tutored Economics, and led campus programs. I enjoy applying my engineering background to make processes smarter and more efficient.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Projects Page -->
+  <div id="projects" class="page">
+    <div class="header">
+      <div class="container">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='140' viewBox='0 0 120 140'%3E%3Crect width='120' height='140' fill='%23f0f0f0' rx='10'/%3E%3Ctext x='60' y='75' text-anchor='middle' font-family='Arial' font-size='14' fill='%23666'%3EProfile Photo%3C/text%3E%3C/svg%3E" alt="Fatimah Al-Najjar" class="profile-img">
+        <h1>My Projects & Technical Work</h1>
+        <div class="tagline">Engineering Solutions & Research</div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="main-content">
+        <div class="projects-section">
+          <h2>Projects Portfolio</h2>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-title">C-Section Baby Glove</div>
+              <div class="project-type">Medical Device Design</div>
+            </div>
+            <div class="project-content">
+              <div class="project-description">
+                Led a team to design a glove device for low-resource fetal head deliveries. Managed clinical testing, prototyping, and patent preparation.
+              </div>
+              <div class="project-tech">
+                <span class="tech-tag">Design</span>
+                <span class="tech-tag">Medical Device</span>
+                <span class="tech-tag">Collaboration</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-title">OpenSim Moco in Python</div>
+              <div class="project-type">Biomechanical Simulation</div>
+            </div>
+            <div class="project-content">
+              <div class="project-description">
+                Developed a simulation framework using OpenSim Moco to study hand biomechanics, enabling efficient movement prediction and muscle coordination analysis.
+              </div>
+              <div class="project-tech">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">OpenSim</span>
+                <span class="tech-tag">Simulation</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Add more project cards as needed -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showPage(event, pageId) {
+      event.preventDefault();
+      document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+      document.getElementById(pageId).classList.add('active');
+      document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+      event.target.classList.add('active');
+      window.scrollTo(0, 0);
+    }
+  </script>
+
+</body>
+</html>
