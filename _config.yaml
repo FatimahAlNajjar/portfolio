@@ -1,0 +1,10 @@
+title: "Fatimah Al-Najjar Portfolio"
+description: "My engineering and data projects"
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://username.github.io"
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+github:
+  metadata: true  # Or remove this if not needed
