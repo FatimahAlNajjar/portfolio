@@ -2,144 +2,352 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>Fatimah Al-Najjar | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fatimah Al-Najjar - Full Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f8f9fa;
+      padding-top: 80px;
+    }
+
+    /* Navigation */
+    .nav {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 15px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      padding: 0 20px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-link {
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 10px 20px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      font-weight: 300;
+    }
+
+    .header .tagline {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 30px;
+    }
+
+    .profile-img {
+      width: 120px;
+      height: 140px;
+      border-radius: 10px;
+      margin: 0 auto 30px;
+      display: block;
+      border: 4px solid rgba(255,255,255,0.3);
+    }
+
+    .main-content {
+      background: white;
+      margin: -30px auto 0;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+
+    .projects-section {
+      padding: 50px 40px;
+    }
+
+    .projects-section h2 {
+      font-size: 1.8rem;
+      color: #2c3e50;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+
+    .project-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 25px;
+    }
+
+    .project-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .project-type {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    .project-content {
+      padding: 25px;
+    }
+
+    .project-description {
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .tech-tag {
+      background: #f0f0f0;
+      color: #666;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      border: 1px solid #e0e0e0;
+      transition: all 0.3s ease;
+    }
+
+    .tech-tag:hover {
+      background: #667eea;
+      color: white;
+      border-color: #667eea;
+    }
+
+    .project-highlights {
+      list-style: none;
+      margin-top: 15px;
+      padding-left: 20px;
+    }
+
+    .project-highlights li {
+      color: #555;
+      padding: 5px 0;
+      position: relative;
+    }
+
+    .project-highlights li::before {
+      content: "✓";
+      color: #667eea;
+      position: absolute;
+      left: -20px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        gap: 15px;
+      }
+
+      .nav-link {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+      }
+
+      .header h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
+
   <!-- Navigation -->
   <nav class="nav">
     <div class="nav-container">
       <div class="nav-links">
-        <a class="nav-link active" onclick="showPage('home')">Home</a>
-        <a class="nav-link" onclick="showPage('projects')">Projects</a>
+        <a href="#" class="nav-link active" onclick="showPage(event, 'home')">Home</a>
+        <a href="#" class="nav-link" onclick="showPage(event, 'projects')">Projects</a>
       </div>
     </div>
   </nav>
 
   <!-- Home Page -->
   <div id="home" class="page active">
-    <!-- Your existing home content -->
+    <div class="header">
+      <div class="container">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='140' viewBox='0 0 120 140'%3E%3Crect width='120' height='140' fill='%23f0f0f0' rx='10'/%3E%3Ctext x='60' y='75' text-anchor='middle' font-family='Arial' font-size='14' fill='%23666'%3EProfile Photo%3C/text%3E%3C/svg%3E" alt="Fatimah Al-Najjar" class="profile-img">
+        <h1>From Classroom to Real-World Impact. Take a Look at My Work!</h1>
+        <div class="tagline">Fatimah Al-Najjar</div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="main-content">
+        <div class="projects-section">
+          <h2>Welcome</h2>
+          <p style="padding: 30px; text-align: center; font-size: 1.1rem; color: #444;">
+            I'm a Northwestern Engineering graduate who loves turning data into impact. Whether it’s building medical devices, developing simulations, or writing clean code, I combine technical expertise with creative problem-solving.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Projects Page -->
   <div id="projects" class="page">
     <div class="header">
       <div class="container">
-        <h1>Projects Portfolio</h1>
-        <div class="tagline">A showcase of technical and engineering work</div>
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='140' viewBox='0 0 120 140'%3E%3Crect width='120' height='140' fill='%23f0f0f0' rx='10'/%3E%3Ctext x='60' y='75' text-anchor='middle' font-family='Arial' font-size='14' fill='%23666'%3EProfile Photo%3C/text%3E%3C/svg%3E" alt="Fatimah Al-Najjar" class="profile-img">
+        <h1>My Projects & Technical Work</h1>
+        <div class="tagline">Engineering Solutions & Research</div>
       </div>
     </div>
+
     <div class="container">
       <div class="main-content">
         <div class="projects-section">
+          <h2>Projects Portfolio</h2>
           <div class="projects-grid">
 
             <div class="project-card">
               <div class="project-header">
-                <div class="project-title">C-Section Baby Glove</div>
+                <div class="project-title">OpenSim Moco in Python</div>
+                <div class="project-type">Optimal Control Simulation</div>
               </div>
               <div class="project-content">
-                <p>Strategic Project Leadership: Led a team of four in the design and development of a glove-based device to assist with impacted fetal head deliveries in low- and middle-income countries. Structured the project and spearheaded the strategy by defining clinical needs, setting design milestones, and coordinating simulation-based testing.</p>
-                <p>Clinical Collaboration and Validation: Directed collaboration with a retired OBGYN client and a practicing physician at NorthShore to ensure clinical relevance and usability. Oversaw prototype validation using SimMom and a custom-built uterine model.</p>
-                <p>Cross-Functional Execution: Managed cross-functional efforts from concept through testing, resulting in a provisional patent application for a low-cost, single-user obstetric solution.</p>
-              </div>
-            </div>
-
-            <div class="project-card">
-              <div class="project-header">
-                <div class="project-title">Fluid Dynamic Algorithms in MATLAB</div>
-              </div>
-              <div class="project-content">
-                <p>Completed a series of advanced computational modeling projects by applying MATLAB to develop numerical algorithms for simulating physical systems and validating engineering models.</p>
-                <p>Algorithm Implementation: Designed and implemented solvers for steady and unsteady 1D/2D/3D heat transfer and convection-diffusion problems using discretization techniques such as finite difference and finite volume methods.</p>
-                <p>Code Optimization: Executed structured projects involving pressure-based algorithms (SIMPLE, SIMPLER), fluid flow simulations, and equation linearization methods, to emphasize mathematical accuracy and code efficiency.</p>
-                <p>Technical Documentation: Produced detailed reports in LaTeX, integrating simulation results, error analyses, and visualizations to communicate technical findings clearly and effectively and mirror best practices in business reporting and model validation.</p>
+                <div class="project-description">
+                  Implementation of optimal control problems using OpenSim Moco framework for musculoskeletal movement prediction and analysis.
+                </div>
+                <div class="project-tech">
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">OpenSim Moco</span>
+                  <span class="tech-tag">Optimal Control</span>
+                  <span class="tech-tag">Simulation</span>
+                </div>
+                <ul class="project-highlights">
+                  <li>Solved optimal control problems</li>
+                  <li>Automated simulation pipelines</li>
+                  <li>Reduced computational time significantly</li>
+                </ul>
               </div>
             </div>
 
             <div class="project-card">
               <div class="project-header">
                 <div class="project-title">Flappy Bird in Python</div>
+                <div class="project-type">Game Development</div>
               </div>
               <div class="project-content">
-                <p>Software Development: Wrote a Python script to continuously read analog voltage data, apply real-time mapping logic, and control game mechanics using Pygame Zero, demonstrating signal-to-software integration and data-driven control</p>
-                <p>System Architecture: Demonstrated end-to-end system design, from analog signal acquisition to digital response, highlighting practical experience in embedded systems, data interpretation, and Python-based automation</p>
-                <p>Sensor Integration: Designed and implemented a Python-controlled version of Flappy Bird using a custom-built bending sensor to convert mechanical deformation into game input</p>
-                <p>Hardware Design: Developed a hardware system incorporating a voltage divider, buffer amplifier, and high/low-pass filters to process analog signals, with a level shifter for Raspberry Pi Pico compatibility</p>
-              </div>
-            </div>
-
-            <div class="project-card">
-              <div class="project-header">
-                <div class="project-title">Robotic Manipulation in Python</div>
-              </div>
-              <div class="project-content">
-                <p>Python Scripting: Completed a final project in ME 449: Robotic Manipulation, using Python and CoppeliaSim to automate a robotic arm for dynamic object manipulation tasks involving position detection, grasp planning, and trajectory execution.</p>
-                <p>Time Series Data Analysis: Developed and tested multiple control strategies with varying damping and feedback parameters to capture real-time movement and error data through scripted logging into CSV files for comparative analysis.</p>
-                <p>Data-Driven Decision Making: Visualized positional error convergence across control methods using Python plotting libraries to enable data-driven evaluation of optimization performance and the decision-making process.</p>
-              </div>
-            </div>
-
-            <div class="project-card">
-              <div class="project-header">
-                <div class="project-title">Data Visualization in R</div>
-              </div>
-              <div class="project-content">
-                <p>R Scripting: Completed a series of data visualization projects using R and ggplot2 to transform raw datasets into clear, insight-driven graphics for both structured and exploratory analysis.</p>
-                <p>Data Visualization: Applied best practices in visual encoding, dashboard design, and storytelling to develop custom visualizations and communicate patterns, trends, and outliers across various data types and business contexts.</p>
-              </div>
-            </div>
-
-            <div class="project-card">
-              <div class="project-header">
-                <div class="project-title">Research Grant: AI-Driven Anatomic Fingerprinting of Coronary Arteries</div>
-              </div>
-              <div class="project-content">
-                <p>Machine Learning: Led a proposal for an independent project to develop a predictive framework for ischemic heart disease using machine learning, computational fluid dynamics (CFD), and AI-driven risk modeling.</p>
-                <p>Problem Identification: Identified key limitations in existing diagnostic workflows that rely solely on static anatomical metrics, and proposed a data-driven alternative leveraging patient-specific hemodynamic profiles.</p>
-                <p>Pipeline Development: Designed a pipeline integrating AI and CFD simulations to generate personalized risk signatures, to enable more accurate stratification of cardiovascular event risk. First, I propose a 3D U-Net CNN model with uncertainty estimation (Monte Carlo dropout) to automate segmentation. Nest, 3D coronary geometries from Aim 1 are refined with Poisson surface reconstruction and anisotropic smoothing. Patient-specific inflow data are derived from Doppler echocardiography or 4D flow MRI. Outflow conditions are modeled using Windkessel circuits. Laslty, algorithms will integrate geometric and CFD-derived features to generate individual “risk fingerprints.” Cross-validation will assess the performance of these signatures in distinguishing MACE vs. non-MACE patients, compared to conventional metrics like percent stenosis.</p>
-                <p>Strategic Insight: Demonstrated strategic thinking by bridging domain-specific insights with advanced analytics.</p>
-              </div>
-            </div>
-
-            <div class="project-card">
-              <div class="project-header">
-                <div class="project-title">OpenSim Moco in Python</div>
-              </div>
-              <div class="project-content">
-                <p>Developed an object-oriented Python framework on top of OpenSim Moco to simulate, optimize, and analyze neuromuscular control and hand kinematics for prosthetics and rehabilitation applications.</p>
-                <p>System Architecture: Designed modular Python classes to structure core functionality, including model building, simulation setup, data integration, and results visualization</p>
-                <p>Object-Oriented Design: Implemented key classes such as</p>
-                <ul>
-                  <li>MocoHandModelBuilder to configure musculoskeletal models with adjustable muscles, constraints, and joint parameters</li>
-                  <li>MocoHandSimulation to define and solve optimal control problems with cost terms, bounds, and solver settings</li>
-                  <li>DataHandler to load, preprocess, and format experimental data for simulation input</li>
-                  <li>Visualizer to generate diagnostic plots of muscle activation, kinematics, and solver performance</li>
+                <div class="project-description">
+                  Custom-built Flappy Bird using Python and sensor integration. Used real-time analog data to control game mechanics.
+                </div>
+                <div class="project-tech">
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">Pygame</span>
+                  <span class="tech-tag">Sensor Input</span>
+                  <span class="tech-tag">Game Dev</span>
+                </div>
+                <ul class="project-highlights">
+                  <li>Signal-to-software integration</li>
+                  <li>Hardware and software design</li>
+                  <li>Custom sensor mechanics</li>
                 </ul>
-                <p>Data Integration & Automation: Enabled batch simulation runs, parameter sweeps, and reproducible experiments through configurable class-based workflows</p>
-                <p>Scalability: Engineered the framework for extensibility to allow users to add muscles, redefine objective functions, or modify model architecture without disrupting core logic</p>
               </div>
             </div>
 
-            <div class="project-card">
-              <div class="project-header">
-                <div class="project-title">Hand and Wrist Musculoskeletal Model in Python and C++</div>
-              </div>
-              <div class="project-content">
-                <p>Engineered enhancements to an OpenSim-based biomechanical model by integrating new muscles and synergy controllers to improve simulation fidelity of the extensor hood mechanism in the human hand.</p>
-                <p>Analytical Evaluation: Processed simulation results to assess joint performance and muscle activation, summarizing key insights in a user-friendly format suitable for review by both technical and non-technical stakeholders</p>
-                <p>Workflow Automation: Designed a lightweight automation pipeline to execute Computed Muscle Control (CMC) simulations and extract relevant outputs across 12 multi-joint, multi-subject motion trials</p>
-                <p>Strategic Proposal: Identified limitations in existing CMC objective functions and proposed a migration to the Moco simulation platform to enable better optimization and analytical flexibility (see MocoHand project)</p>
-                <p>Data Quality & Selection: Cleaned and evaluated time-series joint angle data collected via CyberGlove; selected optimal trials based on cross-subject consistency and signal reliability to ensure robust input for simulation</p>
-                <p>Simulation Modeling: Added new muscles and coordination strategies to the existing OpenSim Hand and Wrist model using both GUI and C++ API; configured the model to more accurately reflect real-world anatomical structures</p>
-              </div>
-            </div>
+            <!-- Add more project cards here as needed -->
 
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <script>
+    function showPage(event, pageId) {
+      event.preventDefault();
+      document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+      document.getElementById(pageId).classList.add('active');
+      document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+      event.target.classList.add('active');
+      window.scrollTo(0, 0);
+    }
+  </script>
+
 </body>
 </html>
