@@ -466,7 +466,7 @@
     <nav class="nav">
         <div class="nav-container">
             <div class="nav-links">
-                <a class="nav-link active" onclick="showPage('home')">Home</a>
+                <a class="nav-link active" onclick="showPage('home', this)">Home</a>
                 <a class="nav-link" onclick="showPage('projects')">Projects</a>
             </div>
         </div>
@@ -958,7 +958,24 @@
             // Update navigation
             const navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(link => link.classList.remove('active'));
-            event.target.classList.add('active');
+            function showPage(pageId, el) {
+                // Hide all pages
+                const pages = document.querySelectorAll('.page');
+                pages.forEach(page => page.classList.remove('active'));
+                
+                // Show selected page
+                document.getElementById(pageId).classList.add('active');
+                
+                // Update navigation
+                const navLinks = document.querySelectorAll('.nav-link');
+                navLinks.forEach(link => link.classList.remove('active'));
+                el.classList.add('active');
+            
+                // Scroll to top
+                window.scrollTo(0, 0);
+            }
+
+
             
             // Scroll to top
             window.scrollTo(0, 0);
